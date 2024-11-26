@@ -1,0 +1,10 @@
+{
+  "name": "time-commando",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": "Valeri Karpov <val@karpov.io>",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}
