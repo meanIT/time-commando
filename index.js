@@ -44,13 +44,16 @@ exports.nextMidnight = function nextMidnight(date) {
  * @returns {string} A string representing the desired format
  */
 
-exports.toYYYYMMDD = function toYYYYMMDD(d, dashes) {
+exports.toYYYYMMDD = function toYYYYMMDD(d, dashes) { 
+  if (dashes) {
+    const year = d.getFullYear();
+    const month = d.getMonth() + 1;
+    const day = d.getDate();
+    return year + '-' + ('' + month).padStart(2, '0') + '-' + ('' + day).padStart(2, '0'); // "2021-11-24"
+  }
   const year = d.getFullYear() * 1e4;
   const month = (d.getMonth() + 1) * 100;
   const day = d.getDate();
-  if (dashes) {
-    return year + '-' + month + '-' + day; // "2021-11-24"
-  }
   return year + month + day + ''; // `+ ''` to convert to string from number, 20211124 => "20211124"
 };
 
